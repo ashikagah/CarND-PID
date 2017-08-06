@@ -32,9 +32,9 @@ int main()
 {
     uWS::Hub h;
     
-    // Init PID controller
     PID pid;
-    pid.Init(0.12, 0.0015, 2.0);
+    // TODO: Initialize the pid variable.
+    pid.Init(0.135, 0.00027, 3.1);
     pid.prev_cte = 0;
     pid.dt = 0;
     pid.last_timestamp = clock();
@@ -52,11 +52,17 @@ int main()
                 if (event == "telemetry") {
                     // j[1] is the data JSON object
                     double cte = std::stod(j[1]["cte"].get<std::string>());
-                    //          double speed = std::stod(j[1]["speed"].get<std::string>());
-                    //          double angle = std::stod(j[1]["steering_angle"].get<std::string>());
+                    // double speed = std::stod(j[1]["speed"].get<std::string>());
+                    // double angle = std::stod(j[1]["steering_angle"].get<std::string>());
                     double steer_value;
                     
-                    // Steering value
+                    /*
+                     * TODO: Calcuate steering value here, remember the steering value is
+                     * [-1, 1].
+                     * NOTE: Feel free to play around with the throttle and speed. Maybe use
+                     * another PID controller to control the speed!
+                     */
+                    
                     pid.dt = clock() - pid.last_timestamp;
                     pid.last_timestamp = clock();
                     pid.UpdateError(cte);

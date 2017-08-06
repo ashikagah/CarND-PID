@@ -90,3 +90,17 @@ that's just a guess.
 
 One last note here: regardless of the IDE used, every submitted project must
 still be compilable with cmake and make./
+
+## Reflection
+
+#### 1. Describe the effect each of the P, I, D components had in your implementation.
+
+It was interesting to see the different effects of different parameters for each of the components, P (proportional), I (Integral) and D (Differential). As predicted from the equation, the P component mainly impacts the magnitude of the overcompensation. The I component affects the turning angle in acute curves. The D component affects the frequency and the magnitude of each overcompensation.
+
+#### 2. Describe how the final hyperparameters were chosen.
+
+First I randomly picked parameters for the P, I, and D components. I carefully adjusted the P component, paying particular attention to the magnitude of fluctuation of overcompensation. Then I adjusted the D component to make the drving as smooth as it can. Finally, the I component was adjusted mainly to smooth the acute curves. I kept the speed constant.
+
+* P = 0.135
+* I = 0.00027
+* D = 3.1
